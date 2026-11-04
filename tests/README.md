@@ -1,0 +1,2 @@
+# Testing
+The initial CI workflow validates PHP syntax and the Composer manifest on pushes and pull requests to main. Unit and feature tests will be added alongside each tool module. Verify the /health endpoint before deployment.
