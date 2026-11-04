@@ -1,0 +1,5 @@
+<!doctype html>
+<html lang="bn"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1"><meta name="description" content="AI, PDF, ইমেজ, ক্যালকুলেটর ও ডেভেলপার টুলস—এক প্ল্যাটফর্মে।"><title><?= $title ?> — ToolkitPro</title><link rel="stylesheet" href="/assets/css/app.css"></head>
+<body><header class="site-header"><a class="brand" href="/">ToolkitPro</a><nav><a href="#tools">টুলস</a><a href="#about">আমাদের সম্পর্কে</a></nav></header>
+<main class="hero"><p class="eyebrow">ALL YOUR DIGITAL TOOLS IN ONE PLACE</p><h1>আপনার সব ডিজিটাল টুলস, <span>এক প্ল্যাটফর্মে।</span></h1><p>দৈনন্দিন অনলাইন কাজ সহজ, দ্রুত ও নিরাপদে সম্পন্ন করুন।</p><a class="primary-link" href="#tools">টুলস এক্সপ্লোর করুন</a></main>
+<section id="tools" class="section"><h2>জনপ্রিয় টুলস</h2><p>টুলস লাইব্রেরি ধাপে ধাপে যুক্ত করা হচ্ছে।</p></section><section id="about" class="section"><h2>ToolkitPro সম্পর্কে</h2><p>বাংলা ও ইংরেজি ভাষাভিত্তিক একটি আধুনিক ডিজিটাল টুলস প্ল্যাটফর্ম।</p></section><footer>© <?= date('Y') ?> ToolkitPro</footer></body></html>
