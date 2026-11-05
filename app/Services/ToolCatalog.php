@@ -25,8 +25,9 @@ final class ToolCatalog
             $params['category'] = (string)$filters['category'];
         }
         if (!empty($filters['q'])) {
-            $where[] = "(t.name_bn ILIKE :query OR t.name_en ILIKE :query OR t.slug ILIKE :query OR t.description_bn ILIKE :query OR t.description_en ILIKE :query)";
-            $params['query'] = '%' . trim((string)$filters['q']) . '%';
+            $needle = '%' . trim((string)$filters['q']) . '%';
+            $where[] = "(t.name_bn ILIKE :query_bn OR t.name_en ILIKE :query_en OR t.slug ILIKE :query_slug OR t.description_bn ILIKE :query_desc_bn OR t.description_en ILIKE :query_desc_en)";
+            $params += ['query_bn' => $needle, 'query_en' => $needle, 'query_slug' => $needle, 'query_desc_bn' => $needle, 'query_desc_en' => $needle];
         }
         $sqlWhere = implode(' AND ', $where);
         $count = $this->connection()->prepare("SELECT COUNT(*) FROM tools t LEFT JOIN categories c ON c.id=t.category_id WHERE {$sqlWhere}");
