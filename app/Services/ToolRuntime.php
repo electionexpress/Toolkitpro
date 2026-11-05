@@ -22,11 +22,14 @@ final class ToolRuntime
         $this->handlers[$key] = $handler;
     }
 
-    public function execute(string $key, array $input): mixed
+    public function execute(string $key, array $input, array $schema = []): mixed
     {
         $handler = $this->handlers[$key] ?? null;
         if ($handler === null) {
             throw new RuntimeException('Tool runtime handler is not installed.');
+        }
+        if ($schema !== []) {
+            (new ToolInputValidator())->validate($input, $schema);
         }
         return $handler($input);
     }
