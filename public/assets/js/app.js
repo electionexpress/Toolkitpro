@@ -53,16 +53,25 @@
       const response = await fetch('/api/v1/categories',{headers:{Accept:'application/json'}});
       if (!response.ok) throw new Error('categories unavailable');
       const payload = await response.json();
-      (payload.data || []).forEach((item) => {
+      const categoryGrid = document.getElementById('category-grid');
+      if (categoryGrid) categoryGrid.replaceChildren();
+      (payload.data || []).forEach((item,index) => {
         const button = node('button','filter-chip',item.name_bn || item.name_en);
         button.type = 'button';
         button.dataset.category = item.slug;
-        button.addEventListener('click',() => {
-          category = item.slug; page = 1;
-          filters.querySelectorAll('button').forEach((b) => b.classList.toggle('active',b.dataset.category === category));
-          loadTools(false);
-        });
+        button.addEventListener('click',() => selectCategory(item.slug));
         filters.append(button);
+        if (categoryGrid) {
+          const tile = node('button','category-tile');
+          tile.type = 'button';
+          tile.setAttribute('aria-label', (item.name_bn || item.name_en) + ' ক্যাটাগরির টুল দেখুন');
+          const icon = node('span','category-tile-icon',['✧','▤','▧','◉','♫','Aa','∑','⇄','⌘','↗','✓','◈'][index % 12]);
+          const copy = node('span','category-tile-copy');
+          copy.append(node('strong','',item.name_bn || item.name_en),node('small','',String(item.tool_count || 0) + ' টি প্রকাশিত টুল'));
+          tile.append(icon,copy);
+          tile.addEventListener('click',() => { selectCategory(item.slug); document.getElementById('tools')?.scrollIntoView({behavior:'smooth'}); });
+          categoryGrid.append(tile);
+        }
       });
     } catch (_) { /* The all-categories option remains available. */ }
   }
@@ -86,6 +95,28 @@
   });
   loadCategories();
   loadTools(false);
+
+  function selectCategory(slug) {
+    category = slug;
+    page = 1;
+    filters.querySelectorAll('button').forEach((b) => b.classList.toggle('active',b.dataset.category === category));
+    loadTools(false);
+  }
+  const heroSearch = document.getElementById('hero-search');
+  const heroSearchButton = document.getElementById('hero-search-button');
+  const runHeroSearch = () => {
+    if (!heroSearch || !search) return;
+    search.value = heroSearch.value;
+    query = heroSearch.value.trim();
+    category = '';
+    page = 1;
+    filters.querySelectorAll('button').forEach((b) => b.classList.toggle('active',b.dataset.category === ''));
+    loadTools(false);
+    document.getElementById('tools')?.scrollIntoView({behavior:'smooth'});
+  };
+  heroSearchButton?.addEventListener('click',runHeroSearch);
+  heroSearch?.addEventListener('keydown',(event) => { if (event.key === 'Enter') runHeroSearch(); });
+
 
   const themeButton = document.getElementById('theme-toggle');
   const applyTheme = (theme) => {
