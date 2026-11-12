@@ -20,5 +20,10 @@ jobs:
         run: composer install --no-interaction --prefer-dist
       - name: Validate PHP syntax
         run: composer check
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+      - name: Validate browser JavaScript
+        run: node --check public/assets/js/app.js
       - name: Run Tools Engine tests
         run: composer test
