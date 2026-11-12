@@ -54,7 +54,7 @@ final class ToolCatalog
 
     public function categories(): array
     {
-        $stmt = $this->connection()->query("SELECT c.slug,c.name_bn,c.name_en,c.sort_order,COUNT(t.id) FILTER (WHERE t.status='published' AND t.is_active=TRUE) AS tool_count FROM categories c LEFT JOIN tools t ON t.category_id=c.id WHERE c.is_active=TRUE GROUP BY c.id ORDER BY c.sort_order,c.name_en");
+        $stmt = $this->connection()->query("SELECT c.slug,c.name_bn,c.name_en,c.sort_order,COUNT(t.id) FILTER (WHERE t.status='published' AND t.is_active=TRUE AND t.visibility='public') AS tool_count FROM categories c LEFT JOIN tools t ON t.category_id=c.id WHERE c.is_active=TRUE GROUP BY c.id ORDER BY c.sort_order,c.name_en");
         return $stmt->fetchAll();
     }
 }
