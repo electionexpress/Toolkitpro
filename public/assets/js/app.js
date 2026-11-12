@@ -86,4 +86,24 @@
   });
   loadCategories();
   loadTools(false);
+
+  const themeButton = document.getElementById('theme-toggle');
+  const applyTheme = (theme) => {
+    document.body.dataset.theme = theme;
+    if (themeButton) {
+      const dark = theme === 'dark';
+      themeButton.textContent = dark ? '☀' : '☾';
+      themeButton.setAttribute('aria-label', dark ? 'লাইট মোড চালু করুন' : 'ডার্ক মোড চালু করুন');
+      themeButton.setAttribute('aria-pressed', String(dark));
+    }
+    document.querySelector('meta[name="theme-color"]')?.setAttribute('content', theme === 'dark' ? '#101828' : '#ffffff');
+  };
+  let savedTheme = 'light';
+  try { savedTheme = localStorage.getItem('toolkitpro-theme') || (matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light'); } catch (_) {}
+  applyTheme(savedTheme);
+  themeButton?.addEventListener('click', () => {
+    const next = document.body.dataset.theme === 'dark' ? 'light' : 'dark';
+    applyTheme(next);
+    try { localStorage.setItem('toolkitpro-theme', next); } catch (_) {}
+  });
 })();
