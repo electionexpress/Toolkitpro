@@ -15,7 +15,7 @@ ToolkitPro is a Bengali-first, mobile-friendly digital tools platform designed t
 
 The platform is designed to manage 2,500+ tools through a database-backed catalog—not a hard-coded or fabricated tool count. Each tool has a stable slug, category, localized metadata, execution type, version, visibility, publication state, and input/output schemas. Server-side tools can execute only through explicitly registered trusted handlers; database records cannot inject PHP code.
 
-The database supports tool versions and execution tracking. Admin authentication, role-based permissions, a visual builder, publishing/rollback workflows, and a populated production catalog are staged for subsequent implementation.
+The database supports tool versions, execution tracking, reusable tool templates, tagging, and CSV/JSON/API bulk-import batches with row-level validation error records. Admin authentication, role-based permissions, a visual builder, publishing/rollback workflows, and a populated production catalog are staged for subsequent implementation.
 
 ## API
 
