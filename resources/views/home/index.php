@@ -3,7 +3,7 @@
 <head>
 <meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
 <meta name="description" content="ToolkitPro-তে AI, PDF, ইমেজ, ক্যালকুলেটর ও ডেভেলপার টুলস—আপনার দৈনন্দিন ডিজিটাল কাজের সহজ সমাধান।">
-<meta name="theme-color" content="#101828"><meta property="og:type" content="website">
+<meta name="theme-color" content="#101828"><meta name="robots" content="index,follow,max-image-preview:large"><meta name="color-scheme" content="light dark"><link rel="canonical" href="https://toolkitpro-r2lx.onrender.com/"><meta property="og:type" content="website"><meta property="og:locale" content="bn_BD"><meta property="og:site_name" content="ToolkitPro">
 <meta property="og:title" content="ToolkitPro — সব ডিজিটাল টুলস, এক প্ল্যাটফর্মে">
 <meta property="og:description" content="দ্রুত, সহজ ও স্মার্ট ডিজিটাল কাজের জন্য আপনার অল-ইন-ওয়ান টুলকিট।">
 <title><?= htmlspecialchars((string) $title, ENT_QUOTES, 'UTF-8') ?> — ToolkitPro</title>
@@ -13,10 +13,11 @@
 <link rel="stylesheet" href="/assets/css/app.css">
 </head>
 <body>
+<a class="skip-link" href="#main-content">মূল কনটেন্টে যান</a>
 <div class="announcement"><span class="announcement-dot"></span> আপনার কাজকে আরও সহজ করতে ToolkitPro তৈরি হচ্ছে <span>↗</span></div>
 <header class="site-header"><a class="brand" href="/"><span class="brand-mark">T<span>+</span></span><span>Toolkit<span class="brand-light">Pro</span></span></a>
-<nav class="desktop-nav" aria-label="প্রধান নেভিগেশন"><a href="#tools">টুলস</a><a href="#features">সুবিধাসমূহ</a><a href="#about">আমাদের সম্পর্কে</a></nav><a class="header-cta" href="#tools">টুলস দেখুন <span>↗</span></a></header>
-<main>
+<nav class="desktop-nav" aria-label="প্রধান নেভিগেশন"><a href="#tools">টুলস</a><a href="#features">সুবিধাসমূহ</a><a href="#about">আমাদের সম্পর্কে</a></nav><div class="header-actions"><button class="theme-toggle" id="theme-toggle" type="button" aria-label="ডার্ক মোড চালু করুন" title="থিম পরিবর্তন">☾</button><a class="header-cta" href="#tools">টুলস দেখুন <span>↗</span></a></div></header>
+<main id="main-content">
 <section class="hero"><div class="hero-copy"><div class="hero-label">✦ &nbsp; YOUR SMART DIGITAL WORKSPACE</div>
 <h1>আপনার সব ডিজিটাল কাজ,<br><span class="gradient-text">এখন এক জায়গায়।</span></h1>
 <p class="hero-description">ছোট-বড় প্রতিদিনের অনলাইন কাজ করুন আরও সহজে। প্রয়োজনীয় ডিজিটাল টুলস—একটি সুন্দর, দ্রুত ও ব্যবহারবান্ধব প্ল্যাটফর্মে।</p>
