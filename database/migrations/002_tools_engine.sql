@@ -11,6 +11,8 @@ ALTER TABLE tools
     ADD COLUMN IF NOT EXISTS updated_at TIMESTAMPTZ NOT NULL DEFAULT NOW(),
     ADD COLUMN IF NOT EXISTS published_at TIMESTAMPTZ;
 
+UPDATE tools SET status = 'published', visibility = 'public' WHERE is_active = TRUE AND status = 'draft';
+
 ALTER TABLE tools DROP CONSTRAINT IF EXISTS tools_status_check;
 ALTER TABLE tools ADD CONSTRAINT tools_status_check
     CHECK (status IN ('draft', 'review', 'published', 'archived'));
