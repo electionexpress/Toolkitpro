@@ -16,3 +16,22 @@
 #catalog-more{border:0;border-radius:10px;background:#101828;color:#fff;padding:11px 16px;font:inherit;cursor:pointer}
 #catalog-more[hidden]{display:none}
 @media(max-width:600px){.catalog-pagination{align-items:flex-start;flex-direction:column}.catalog-search{min-height:52px}}
+
+
+/* Accessibility, theme controls and resilient mobile polish */
+.skip-link{position:fixed;z-index:100;left:16px;top:-60px;padding:10px 14px;border-radius:8px;background:#101828;color:#fff}
+.skip-link:focus{top:12px}
+.header-actions{display:flex;align-items:center;gap:12px}
+.theme-toggle{width:40px;height:40px;border:1px solid #e4e7ec;border-radius:10px;background:#fff;color:#344054;font-size:19px;cursor:pointer}
+:focus-visible{outline:3px solid #8b83ff!important;outline-offset:3px}
+body[data-theme="dark"]{--ink:#f2f4f7;--muted:#98a2b3;--line:#344054;background:#101828;color:#f2f4f7}
+body[data-theme="dark"] .site-header,body[data-theme="dark"] .tool-card,body[data-theme="dark"] .catalog-search,body[data-theme="dark"] .filter-chip,body[data-theme="dark"] .theme-toggle{background:#1d2939;color:#f2f4f7;border-color:#344054}
+body[data-theme="dark"] .desktop-nav a,body[data-theme="dark"] .text-link,body[data-theme="dark"] .section-heading p,body[data-theme="dark"] .feature-item p,body[data-theme="dark"] .tool-card p,body[data-theme="dark"] .catalog-search input{color:#d0d5dd}
+body[data-theme="dark"] .hero{background:radial-gradient(ellipse at 80% 42%,#302b5b 0,transparent 42%),linear-gradient(115deg,#101828,#171b35)}
+body[data-theme="dark"] .visual-main-card,body[data-theme="dark"] .float-card{background:#1d2939ed;border-color:#344054;color:#f2f4f7}
+body[data-theme="dark"] .visual-search,body[data-theme="dark"] .mini-tool{background:#101828;border-color:#344054;color:#d0d5dd}
+body[data-theme="dark"] .features-section{background:#172235}
+body[data-theme="dark"] .feature-list,body[data-theme="dark"] .feature-item,body[data-theme="dark"] .site-footer{border-color:#344054}
+body[data-theme="dark"] .catalog-message{background:#1d2939;border-color:#475467;color:#d0d5dd}
+body[data-theme="dark"] .catalog-search kbd{border-color:#475467}
+@media(max-width:760px){.header-actions{gap:8px}.theme-toggle{width:36px;height:36px}.site-header{padding-inline:16px}}
