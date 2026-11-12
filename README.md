@@ -33,7 +33,8 @@ The catalog API requires PostgreSQL and the schema below.
 3. Run `composer install`.
 4. For a fresh database, apply `database/schema.sql`.
 5. For a database created with the earlier schema, apply `database/migrations/002_tools_engine.sql`.
-6. Set the web document root to `public/`, or deploy with the included Dockerfile.
+6. Apply `database/seed.sql` to create the bilingual starter categories (safe to rerun).
+7. Set the web document root to `public/`, or deploy with the included Dockerfile.
 
 ## Quality checks
 
